@@ -1,0 +1,54 @@
+{
+  "name": "MiloKhelo - Sports Community Platform",
+  "short_name": "MiloKhelo",
+  "description": "Discover, join, and organize sports games nearby. Connect with players, manage teams, and play more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "social", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Find Games",
+      "short_name": "Find",
+      "description": "Discover games near you",
+      "url": "/find",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Join Waitlist",
+      "short_name": "Waitlist",
+      "description": "Get early access to MiloKhelo",
+      "url": "/#join",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
