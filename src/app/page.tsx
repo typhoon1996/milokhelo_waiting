@@ -373,7 +373,7 @@ const MiloKhelo = () => {
               What Players Are Saying
             </h2>
             <p className={`text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-              Join thousands of athletes who've found their perfect game
+              Join thousands of athletes who&apos;ve found their perfect game
             </p>
           </div>
           
