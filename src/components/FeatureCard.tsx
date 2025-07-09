@@ -27,24 +27,24 @@ export default function FeatureCard({ icon, title, description, color = 'blue' }
       {/* Gradient background effect */}
       <div className={`absolute inset-0 bg-gradient-to-r ${gradientClasses[color as keyof typeof gradientClasses]} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-sm`}></div>
       
-      <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 card-hover border border-slate-200/50 dark:border-slate-700/50">
+      <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-500 card-hover border border-slate-200/50 dark:border-slate-700/50"> {/* Adjusted padding for mobile */}
         {/* Icon container with floating animation */}
-        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 animate-float ${colorClasses[color as keyof typeof colorClasses]}`}>
-          <span className="text-3xl filter drop-shadow-sm">{icon}</span>
+        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 animate-float ${colorClasses[color as keyof typeof colorClasses]}`}> {/* Adjusted size and margin for mobile */}
+          <span className="text-2xl sm:text-3xl filter drop-shadow-sm">{icon}</span> {/* Adjusted icon size for mobile */}
         </div>
         
         {/* Content */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors duration-300">
+        <div className="space-y-2 sm:space-y-3"> {/* Adjusted spacing for mobile */}
+          <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors duration-300"> {/* Adjusted title font size for mobile */}
             {title}
           </h3>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"> {/* Text size is already good at 'sm', no change needed */}
             {description}
           </p>
         </div>
         
         {/* Hover indicator */}
-        <div className="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute top-3 right-3 w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:top-4 sm:right-4"></div> {/* Adjusted position for mobile */}
         
         {/* Shimmer effect */}
         <div className="absolute inset-0 rounded-2xl overflow-hidden">
