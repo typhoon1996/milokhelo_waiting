@@ -1,5 +1,25 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import FeatureCard from '@/components/FeatureCard';
+// import StatsSection from '@/components/StatsSection';
+// import ThemeToggle from '@/components/ThemeToggle';
+
+interface StatItem {
+  value: string;
+  label: string;
+  icon: string;
+  color: string;
+}
+
+interface TestimonialItem {
+  name: string;
+  role: string;
+  content: string;
+  rating: number;
+  avatar: string;
+}
+
+
 
 const MiloKhelo = () => {
   const [theme, setTheme] = useState('dark');
@@ -9,7 +29,7 @@ const MiloKhelo = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e:MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     
@@ -106,43 +126,43 @@ const MiloKhelo = () => {
     }
   ];
 
-  const FeatureCard = ({ icon, title, description, color, delay }) => (
-    <div 
-      className={`group relative overflow-hidden rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${
-        theme === 'dark' 
-          ? 'bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' 
-          : 'bg-black/5 backdrop-blur-xl border border-black/10 hover:border-black/20'
-      }`}
-      style={{ animationDelay: delay }}
-    >
-      <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-      <div className="relative p-8">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="text-4xl group-hover:scale-110 transition-transform duration-500">
-            {icon}
-          </div>
-          <div className={`w-12 h-1 bg-gradient-to-r ${color} rounded-full group-hover:w-16 transition-all duration-500`} />
-        </div>
-        <h3 className={`text-xl font-bold mb-3 transition-all duration-500 ${
-          theme === 'dark' 
-            ? 'text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 group-hover:bg-clip-text' 
-            : 'text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-900 group-hover:to-gray-600 group-hover:bg-clip-text'
-        }`}>
-          {title}
-        </h3>
-        <p className={`leading-relaxed transition-colors duration-500 ${
-          theme === 'dark' 
-            ? 'text-gray-400 group-hover:text-gray-300' 
-            : 'text-gray-600 group-hover:text-gray-700'
-        }`}>
-          {description}
-        </p>
-        <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${color} w-0 group-hover:w-full transition-all duration-700`} />
-      </div>
-    </div>
-  );
+  // const FeatureCard = ({ icon, title, description, color, delay }) => (
+  //   <div 
+  //     className={`group relative overflow-hidden rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${
+  //       theme === 'dark' 
+  //         ? 'bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' 
+  //         : 'bg-black/5 backdrop-blur-xl border border-black/10 hover:border-black/20'
+  //     }`}
+  //     style={{ animationDelay: delay }}
+  //   >
+  //     <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+  //     <div className="relative p-8">
+  //       <div className="flex items-center gap-4 mb-4">
+  //         <div className="text-4xl group-hover:scale-110 transition-transform duration-500">
+  //           {icon}
+  //         </div>
+  //         <div className={`w-12 h-1 bg-gradient-to-r ${color} rounded-full group-hover:w-16 transition-all duration-500`} />
+  //       </div>
+  //       <h3 className={`text-xl font-bold mb-3 transition-all duration-500 ${
+  //         theme === 'dark' 
+  //           ? 'text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 group-hover:bg-clip-text' 
+  //           : 'text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-900 group-hover:to-gray-600 group-hover:bg-clip-text'
+  //       }`}>
+  //         {title}
+  //       </h3>
+  //       <p className={`leading-relaxed transition-colors duration-500 ${
+  //         theme === 'dark' 
+  //           ? 'text-gray-400 group-hover:text-gray-300' 
+  //           : 'text-gray-600 group-hover:text-gray-700'
+  //       }`}>
+  //         {description}
+  //       </p>
+  //       <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${color} w-0 group-hover:w-full transition-all duration-700`} />
+  //     </div>
+  //   </div>
+  // );
 
-  const StatCard = ({ value, label, icon, color }) => (
+  const StatCard = ({ value, label, icon, color }:StatItem) => (
     <div className="relative group">
       <div className={`absolute inset-0 bg-gradient-to-r ${color}/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500`} />
       <div className={`relative backdrop-blur-xl rounded-2xl p-6 border transition-all duration-500 ${
@@ -161,7 +181,7 @@ const MiloKhelo = () => {
     </div>
   );
 
-  const TestimonialCard = ({ name, role, content, rating, avatar }) => (
+  const TestimonialCard = ({ name, role, content, rating, avatar }:TestimonialItem) => (
     <div className={`relative p-6 rounded-2xl backdrop-blur-xl border transition-all duration-500 hover:scale-105 ${
       theme === 'dark' 
         ? 'bg-white/5 border-white/10 hover:border-white/20' 
