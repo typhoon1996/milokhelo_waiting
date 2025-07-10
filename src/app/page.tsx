@@ -20,6 +20,7 @@ interface TestimonialItem {
 
 const MiloKhelo = () => {
   const waitlistRef = useRef<HTMLElement>(null);
+  const working = useRef<HTMLElement>(null);
 
   const [theme, setTheme] = useState('dark');
   // Initialize mousePosition and scrollY safely, or with default values
@@ -62,6 +63,10 @@ const MiloKhelo = () => {
       alert(`Thanks ${name}! You're on the waitlist.`);
       setWaitlistForm({ name: '', email: '', sport: '' });
     }
+  };
+
+  const scrollToWorking = () => {
+    working.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const scrollToWaitlist = () => {
@@ -249,7 +254,7 @@ const MiloKhelo = () => {
             </h1>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mt-4 sm:mt-0">
-            <button className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${theme === 'dark'
+            <button  onClick={scrollToWorking} className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${theme === 'dark'
               ? 'text-white hover:bg-white/10'
               : 'text-gray-900 hover:bg-black/10'
               }`}>
@@ -325,7 +330,7 @@ const MiloKhelo = () => {
         </section>
 
         {/* Enhanced Features Section */}
-        <section className="max-w-7xl mx-auto mb-24 sm:mb-32">
+        <section ref={working} className="max-w-7xl mx-auto mb-24 sm:mb-32">
           <div className="text-center mb-16 sm:mb-20">
             <div className={`inline-flex items-center px-4 py-2 backdrop-blur-xl rounded-full border mb-6 text-sm sm:px-6 sm:py-3 sm:mb-8 ${theme === 'dark'
               ? 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-white/20'
